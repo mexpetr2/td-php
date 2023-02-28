@@ -27,9 +27,7 @@ $appartements = $req->fetchAll(PDO::FETCH_ASSOC);
             <h5 class="card-title"><?php echo strtoupper($appartement['title']) ?></h5>
             <h6 class="card-subtitle mb-2 text-muted"><?php echo $appartement['type'] ?></h6>
             <p class="card-text"><?php echo $appartement['description'] ?></p>
-            <p class="card-text"><?php echo $appartement['price'].'€'?></p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <p class="card-text"><?php echo number_format($appartement['price'],0,'',' ').'€'?></p>
         </div>
 </div>
 

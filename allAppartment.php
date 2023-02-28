@@ -27,9 +27,13 @@ $appartements = $req->fetchAll(PDO::FETCH_ASSOC);
             <h5 class="card-title"><?php echo strtoupper($appartement['title']) ?></h5>
             <h6 class="card-subtitle mb-2 text-muted"><?php echo $appartement['type'] ?></h6>
             <p class="card-text"><?php echo $appartement['description'] ?></p>
-            <p class="card-text"><?php echo $appartement['price'].'€'?></p>
-            <a href="<?php echo 'appartementDetail.php?id='.$appartement['id_table'] ?>" class="btn btn-primary">Réserver</a>
-        </div>
+            <p class="card-text"><?php echo number_format($appartement['price'],0,'',' ').'€'?></p>
+            <?php if(strlen($appartement['reservation_message']) > 0): ?>
+                <a href="<?php echo 'appartementDetail.php?id='.$appartement['id_table'] ?>" class="btn btn-secondary">Réserver</a>
+                <?php else: ?>
+                <a href="<?php echo 'appartementDetail.php?id='.$appartement['id_table'] ?>" class="btn btn-primary">Réserver</a>
+                <?php endif; ?>
+            </div>
 </div>
 
 <?php }?>
